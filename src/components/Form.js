@@ -49,7 +49,7 @@ export class Form extends Component {
     if (this.isValid) {
       console.log(this.state.amount)
       this.state.amount = 0
-      this.state.amount = 0
+      this.$input.value = 0
     }
   }
 
