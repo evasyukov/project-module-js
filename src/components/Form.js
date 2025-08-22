@@ -2,8 +2,9 @@ import { Component } from "../core/Component"
 
 export class Form extends Component {
   setup(props) {
+    this.props = props
     this.state = {
-      amount: null,
+      amount: 0,
     }
 
     this.$rootElement = document.createElement("form")
@@ -39,7 +40,7 @@ export class Form extends Component {
   }
 
   handleInput(event) {
-    this.state.amount = event.target.value
+    this.state.amount = Number(event.target.value)
     this.$button.disabled = !this.isValid ? true : false
   }
 
@@ -47,9 +48,10 @@ export class Form extends Component {
     event.preventDefault()
 
     if (this.isValid) {
-      console.log(this.state.amount)
+      this.props.onSubmit(this.state.amount)
+
       this.state.amount = 0
-      this.$input.value = 0
+      this.$input.value = ''
     }
   }
 

@@ -15,7 +15,7 @@ export class App extends Component {
 
     // разметка заголовока
     const title = document.createElement("h1")
-    title.classList = 'total-amount'
+    title.classList = "total-amount"
     const totalSum = document.createElement("span")
     title.textContent = "Итого: $"
     totalSum.textContent = `${this.state.total}`
@@ -25,13 +25,20 @@ export class App extends Component {
 
     this.$total = totalSum
 
-    const donateForm = new Form()
+    const donateForm = new Form({
+      onSubmit: this.onItemCreate.bind(this),
+    })
     this.$rootElement.appendChild(donateForm.$rootElement)
     const donateList = new List()
     this.$rootElement.appendChild(donateList.$rootElement)
   }
 
   onItemCreate(amount) {
-    // ...
+    const item = new ListItem({ amount })
+    this.state.donates.push(item)
+    this.state.total += amount
+    this.$total.textContent = `${this.state.total}`
+
+    console.log(this.state.donates)
   }
 }
