@@ -12,11 +12,14 @@
 }
 
 body {
+    min-height: 100vh;
+
     padding: 0;
     margin: 0;
+
     color: var(--default-text-color);
     background: var(--main-background);
-    min-height: 100vh;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,6 +44,7 @@ body {
     list-style: none;
     border-left: 10px solid var(--primary-color);
     padding: 0;
+
     max-height: 500px;
     max-width: 500px;
     overflow: hidden;
@@ -66,12 +70,15 @@ body {
 
 .donate-item .delete-button {
     display: inline-block;
+
     background-color: #ff5555;
     color: #fff;
+
+    margin-left: auto;
     padding: 5px 10px;
+    
     border: none;
     cursor: pointer;
-    margin-left: auto;
 }
 
 .donate-item .delete-button:hover {

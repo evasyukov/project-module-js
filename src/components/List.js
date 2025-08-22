@@ -1,4 +1,5 @@
 import { Component } from '../core/Component';
+import { ListItem } from './ListItem';
 
 export class List extends Component {
   setup() {
@@ -10,5 +11,9 @@ export class List extends Component {
 
   addItem(item) {
     // ...
+  }
+
+  deleteItem(item) {
+    
   }
 }
