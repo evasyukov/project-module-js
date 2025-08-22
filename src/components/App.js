@@ -13,10 +13,13 @@ export class App extends Component {
     this.$rootElement = document.createElement("div")
     this.$rootElement.className = "app"
 
+    // разметка заголовока
     const title = document.createElement("h1")
+    title.classList = 'total-amount'
     const totalSum = document.createElement("span")
     title.textContent = "Итого: $"
     totalSum.textContent = `${this.state.total}`
+
     title.appendChild(totalSum)
     this.$rootElement.appendChild(title)
 

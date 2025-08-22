@@ -112,9 +112,6 @@ body {
 .donate-form__input-label {
     font-size: 2rem;
     line-height: 2rem;
-
-    display: flex;
-    flex-direction: column;
 }
 
 .donates-container__donates {
