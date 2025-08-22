@@ -16,6 +16,8 @@ export class App extends Component {
     // разметка заголовока
     const title = document.createElement("h1")
     title.classList = "total-amount"
+
+    // разметка суммы
     const totalSum = document.createElement("span")
     title.textContent = "Итого: $"
     totalSum.textContent = `${this.state.total}`
@@ -36,6 +38,7 @@ export class App extends Component {
     this.donateList = donateList
   }
 
+  // добавление доната
   onItemCreate(amount) {
     const item = new ListItem({
       amount,
@@ -49,6 +52,7 @@ export class App extends Component {
     this.$total.textContent = `${this.state.total}`
   }
 
+  // удаление доната
   removeDonate(id) {
     const item = this.state.donates.find((d) => d.state.id === id)
 

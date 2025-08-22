@@ -8,6 +8,7 @@ export class ListItem extends Component {
       amount: props.amount,
     }
 
+    // разметка одного доната
     this.$rootElement = document.createElement("div")
     this.$rootElement.className = "donate-item"
     this.$rootElement.id = this.state.id

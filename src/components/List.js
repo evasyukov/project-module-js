@@ -2,6 +2,7 @@ import { Component } from "../core/Component"
 
 export class List extends Component {
   setup() {
+    // разметка списка с донатами
     this.$rootElement = document.createElement("div")
     this.$rootElement.className = "donates-container"
 

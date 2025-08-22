@@ -49,17 +49,13 @@ export class Form extends Component {
 
     if (this.isValid) {
       this.props.onSubmit(this.state.amount)
-
       this.state.amount = 0
-      this.$input.value = ''
+      this.$input.value = ""
     }
   }
 
+  // проверка значения в поле ввода
   get isValid() {
-    if (this.state.amount >= 1 && this.state.amount <= 100) {
-      return true
-    } else {
-      return false
-    }
+    return this.state.amount >= 1 && this.state.amount <= 100
   }
 }
