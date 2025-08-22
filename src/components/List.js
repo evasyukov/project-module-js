@@ -1,5 +1,4 @@
 import { Component } from "../core/Component"
-import { ListItem } from "./ListItem"
 
 export class List extends Component {
   setup() {
@@ -13,15 +12,17 @@ export class List extends Component {
     const donatesList = document.createElement("div")
     donatesList.classList = "donates-container__donates"
 
-    this.$rootElement.append(titleDonates)
-    this.$rootElement.append(donatesList)
+    this.$rootElement.appendChild(titleDonates)
+    this.$rootElement.appendChild(donatesList)
 
     this.$donatesList = donatesList
   }
 
   addItem(item) {
-    // ...
+    this.$donatesList.appendChild(item.$rootElement) 
   }
 
-  deleteItem(item) {}
+  removeItem(item) {
+    this.$donatesList.removeChild(item.$rootElement)
+  }
 }

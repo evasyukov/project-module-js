@@ -4,7 +4,7 @@ import { List } from "./List"
 import { ListItem } from "./ListItem"
 
 export class App extends Component {
-  setup(props) {
+  setup() {
     this.state = {
       total: 0,
       donates: [],
@@ -29,16 +29,33 @@ export class App extends Component {
       onSubmit: this.onItemCreate.bind(this),
     })
     this.$rootElement.appendChild(donateForm.$rootElement)
-    const donateList = new List()
+
+    const donateList = new List({})
     this.$rootElement.appendChild(donateList.$rootElement)
+
+    this.donateList = donateList
   }
 
   onItemCreate(amount) {
-    const item = new ListItem({ amount })
+    const item = new ListItem({
+      amount,
+      onRemove: this.removeDonate.bind(this),
+    })
+
     this.state.donates.push(item)
+    this.donateList.addItem(item)
+
     this.state.total += amount
     this.$total.textContent = `${this.state.total}`
+  }
 
-    console.log(this.state.donates)
+  removeDonate(id) {
+    const item = this.state.donates.find((d) => d.state.id === id)
+
+    this.state.donates = this.state.donates.filter((d) => d.state.id !== id)
+    this.donateList.removeItem(item)
+
+    this.state.total -= item.state.amount
+    this.$total.textContent = `${this.state.total}`
   }
 }
